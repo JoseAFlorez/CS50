@@ -1,0 +1,42 @@
+0.  BMP: 4 billion GIF: 256  JPEG: 16 million  PNG: 16 million.
+
+1.  Only GIF.
+
+2.  Lossy compression creates smaller files by discarding some information about the original image. Lossless compression, never discards any information about the original file.
+
+3.  Only JPEG.
+
+4.  When a file is deleted in a FAT file system two thing occur, first the system the filename's first character in the file's directory entry to signal that the file has been deleted and that the directory entry can be recycled. Second, the system moves all of the file's FAT clusters to the hard drive's list of free clusters.
+
+5.  The easiest way to ensure that deleted data can't be recovered is to overwrite the disk with random data. Another method is to physically destroy the disk containing the data or destroy its information using a powerful electromagnetic device. 
+
+6.  The stdint.h is a header file that provides a set of typedefs that specify exact-width integer types, together with the defined minimum and maximum allowable values for each type, using macros.
+
+7.  We use this data types when we want to use an int that have a fix length, per example, uint8_t is an unsigned 8 bit integer, and is used to represent a byte.
+
+8.   BYTE -> 1 byte
+     DWORD -> 4 byte
+     LONG -> 4 byte
+     WORD -> 2 byte
+
+9.  The first two bytes of a BMP file must be "BM" or 0x424d in hexadecimal.
+
+10. bfSize represents the size of the whole BMP file - the BMP image + the headers.
+    biSizeImage should store the size of the BMP image - the size of the RGBTRIPLEs + the total size of the padding.
+
+11. If biHeight is negative, the bitmap is a top-down DIB (Device Independent Bitmap) and its origin is the upper-left corner.
+    If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower-left corner. 
+
+12. biBitCount represents the bit per pixel and it must be one of the following values: 0, 1, 4, 8, 16, 24, or 32.
+
+13. fopen might return NULL if it can't create the outfile, one instance in which this might happen is if the system is out of memory.
+
+14. Because the size of the potion of memory that has to be read is established when the variable type (the struct) is created, so, even if each time is necessary to read different lengths of memory, it only has to read one piece the size of the struct needed.
+ 
+15. 3. If bi.biWidth is 3 that means that is 9 bytes, but the file has to have a multiple of 4 as its length so is needed to add 3 bytes of padding, so the length is 12.
+
+16. Moves the position of the cursor (where the system is "looking" at the file) on the file, in copy.c it's used to skip the padding.
+
+17. Represents the current position of the cursor.
+
+18. Rob Bowden, I think. (Either him or colonel Mustard)
