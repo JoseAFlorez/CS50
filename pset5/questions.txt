@@ -1,11 +1,31 @@
-0.  Pneumonoultramicroscopicsilicovolcanoconiosis is an English word that refers to a lung disease that is otherwise known as silicosis. Silicosis is a form of occupational lung disease caused by inhalation of crystalline silica dust, and is marked by inflammation and scarring in the form of nodular lesions in the upper lobes of the lungs.
-1.  TODO
-2.  TODO
-3.  TODO
-4.  TODO
-5.  TODO
-6.  TODO
-7.  TODO
-8.  TODO
-9.  TODO
-10. TODO
+0.  Pneumonoultramicroscopicsilicovolcanoconiosis is an English word that refers to a lung disease that is otherwise known as silicosis. 
+    Silicosis is a form of occupational lung disease caused by inhalation of crystalline silica dust, and is marked by inflammation and 
+    scarring in the form of nodular lesions in the upper lobes of the lungs.
+
+1.  The function getrusage is used to examine the resource usage of a process or its terminated and waited-for child processes.
+
+2.  16, they are: ru_utime, ru_stime, ru_maxrss, ru_ixrss, ru_idrss, ru_isrss, ru_minflt, ru_majflt, ru_nswap, ru_inblock, ru_oublock, ru_msgsnd, 
+    ru_msgrcv, ru_nsignals, ru_nvcsw, ru_nivcsw
+
+3.  The getrusage function prototype expects a pointer, also, the variable rusage is a pointer itself so is necessary to pass it by address 
+    instead that by value
+
+4.  The for loop runs in every character of the file until it finds the EOF, and build the words so check only has to deal with words that matches the
+    criteria, that means, no words with numbers o with special characters.
+    
+5.  fgetc read one character at the time, so allows to iterate over the word easily and reject words that don't meet the expected criteria.
+
+6.  They are declared as const so there won't be a chance of that function changing the word, the goal is only to check the word, no to change it.
+
+7.  I used a hash table, because is easier to picture one abstractly, the hash table has 8000 keys, I reached this number after different trials, and found
+    that it provides somewhat of balance between the time to load and the time to check. Each node contains a word and the hash function tries to spread
+    the words over the table as evenly as possible.
+    
+8.  The total time was 0.7 seconds, CS50's code takes 0.07 so mine was 10 times slower, and actually it got slower (up to 1.2 sec) before I could tune
+    it properly.
+    
+9.  The first one was the hash function, in my first try, my hash function was only the ASCII value of the first letter of the word, also, I change the 
+    size of my table, my first table was only 27 "buckets" long.
+
+10. I don't think so, I’m pretty comfortable with my code. But i do wonder if there is a better way to compare words regardless of their case other 
+    that the one I used, more efficient, I mean.

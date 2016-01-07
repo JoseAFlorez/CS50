@@ -32,6 +32,8 @@ typedef struct hash_table
     } 
     hash_table;
     
+// GLOBAL VARIABLES
+    
 int word_count = 0;
 
 hash_table* my_hash_table;
@@ -106,6 +108,7 @@ hash_table* create_hash_table(void)
 /**
  * Returns true if word is in dictionary else false.
  */
+ 
 bool check(const char* word)
 {
     node* crawler;
