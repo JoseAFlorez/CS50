@@ -1,0 +1,21 @@
+#top
+{
+    text-align: center;    
+}
+
+#middle
+{
+    text-align: center;
+}
+
+#middle input
+{
+    margin: 5px;
+}
+#bottom
+{
+    font-size: smaller;
+    font-weight: bold;
+    margin: 20px;
+    text-align: center;
+}

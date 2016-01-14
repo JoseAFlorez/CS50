@@ -444,13 +444,29 @@ char* htmlspecialchars(const char* s)
  */
 char* indexes(const char* path)
 {
-    /* TODO
-    FILE*  = fopen(dictionary, "r");
-    if (dic_file == NULL)
+    struct stat buffer;   
+    
+    char* html_check = malloc(strlen(path));
+    strcpy(html_check, path);
+    strcat(html_check, "index.html");
+    
+    if (stat (html_check, &buffer) == 0)
     {
-        printf("Could not open file.\n");
-        return false;
-    }*/
+        return html_check;
+    }
+    
+    char* php_check = malloc(strlen(path));
+    strcpy(php_check, path);
+    strcat(php_check, "index.php");
+    
+    if (stat (html_check, &buffer) == 0)
+    {
+        free(html_check);
+        return php_check;
+    }
+    
+    free(html_check);
+    free(php_check);
     return NULL;
 }
 
@@ -615,8 +631,25 @@ void list(const char* path)
  */
 bool load(FILE* file, BYTE** content, size_t* length)
 {
-    // TODO
-    return false;
+    int z =sizeof(BYTE);
+    
+    *length = z;
+    
+    *content = malloc(z);
+    
+    int i = 0;
+    
+    while (fread(&(*content)[i], z, 1, file) == 1)
+    {
+        if (feof(file))
+        {
+            break;
+        }
+        i++;
+        *length = *length + z;
+        *content = realloc(*content, *length);
+    }
+    return true;
 }
 
 /**
@@ -624,9 +657,44 @@ bool load(FILE* file, BYTE** content, size_t* length)
  */
 const char* lookup(const char* path)
 {
-    // TODO
-    
-    return NULL;
+    char* ext = strrchr(path, '.');
+
+    if (strcasecmp(ext, ".ccs") == 0)
+    {
+        return "text/ccs";
+    }
+    else if (strcasecmp(ext, ".html") == 0)
+    {
+        return "text/html";
+    }
+    else if (strcasecmp(ext, ".gif") == 0)
+    {
+        return "image/gif";
+    }
+    else if (strcasecmp(ext, ".ico") == 0)
+    {
+        return "image/x-icon";
+    }
+    else if (strcasecmp(ext, ".jpg") == 0)
+    {
+        return "image/jpeg";
+    }
+    else if (strcasecmp(ext, ".js") == 0)
+    {
+        return "text/javascript";
+    }
+    else if (strcasecmp(ext, ".php") == 0)
+    {
+        return "text/x-php";
+    }
+    else if (strcasecmp(ext, ".png") == 0)
+    {
+        return "image/png";
+    }
+    else
+    {
+        return NULL;
+    }
 }
 
 /**

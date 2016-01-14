@@ -1,0 +1,39 @@
+body
+{
+    background-color: #FCFCFC;
+}
+
+#rob 
+{
+    border: 1px solid black;
+    top: 50%;
+    left: 50%;
+    margin-top: 120px;
+    margin-left: 150px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 2px 3px #BBB;
+    font-family: Helvetica;
+    text-align: center;
+    -webkit-transform: rotate(-5deg);
+}
+
+#rob h1
+{
+    border-radius: 5px 5px 0px 0px;
+    margin: 0px;
+    padding: 10px 20px;
+    background-color: #318CA7;
+    color: white;
+    font-size: 1em;
+}
+
+#rob h2
+{
+    margin: 0px;
+    padding: 35px 0px 45px 0px;
+    color: #0Ba;
+    font-size: 2em;
+}
+
